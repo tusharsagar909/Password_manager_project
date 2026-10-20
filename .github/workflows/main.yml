@@ -1,0 +1,21 @@
+name: Build My React App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-react-app:
+    runs-on: redhat-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - name: setup Node JS   
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: v24.12.0
+      - name: Install Dependencies  
+        run: npm install
+      - name: Build React App
+        run: npm run build  
+      
