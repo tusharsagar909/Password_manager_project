@@ -7,6 +7,9 @@ on:
 jobs:
   build-next-app:
     runs-on: redhat-latest
+    concurrency: 
+      group: deploy
+      cancel-in-progress: true
 
     steps:
       - name: checkout Repository 
